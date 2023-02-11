@@ -17,11 +17,11 @@ const Header = () => {
       <div className="flex col-span-1">
         <img
           src={menu}
-          className="h-10"
+          className="h-8 cursor-pointer"
           alt="menu-icon"
           onClick={() => toggleMenuHandler()}
         />
-        <img src={logo} className="h-10" alt="logo-icon" />
+        <img src={logo} className="h-8 mx-1" alt="logo-icon" />
       </div>
       <div className="border">
         <input type="text" className="border m-2 w-1/2" />
