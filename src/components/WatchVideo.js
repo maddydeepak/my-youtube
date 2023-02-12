@@ -1,7 +1,7 @@
 import React from "react";
 
 const WatchVideo = () => {
-  return <div>WatchVideo</div>;
+  return <div>WatchVideo Now</div>;
 };
 
 export default WatchVideo;
