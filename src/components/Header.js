@@ -55,19 +55,21 @@ const Header = () => {
           <img src={logo} className="h-8 mx-1" alt="logo-icon" />
         </a>
       </div>
-      <div className="col-span-10">
+      <div className="col-span-10 mx-24">
         <input
           type="text"
-          className="border m-2 w-96"
+          className="w-2/3 h-10 p-2 border border-gray-400 text-gray-900 text-sm rounded-l-lg focus:ring-blue-500"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <button className="bg-red-400 p-1">Search</button>
-        <div className="bg-white px-5 w-96 shadow-lg rounded-lg absolute">
+        <button className="bg-gray-50 border border-gray-400 h-10 rounded-r-lg p-2 font-bold">
+          🔍
+        </button>
+        <div className="bg-white px-2 w-[36rem] shadow-lg rounded-lg absolute">
           {
             <ul>
               {suggestions.map((item) => (
-                <li className="px-1 py-2 hover:bg-gray-100" key={item}>
+                <li className="p-1 py-1 hover:bg-gray-200" key={item}>
                   🔍{item}
                 </li>
               ))}
