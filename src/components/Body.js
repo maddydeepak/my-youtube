@@ -1,12 +1,13 @@
 import React from "react";
 import SideBar from "./SideBar";
 import MainContainer from "./MainContainer";
+import { Outlet } from "react-router-dom";
 
 const Body = () => {
   return (
     <div className="flex">
-      <SideBar className="grid-cols-1" />
-      <MainContainer className="grid-cols-11" />
+      <SideBar />
+      <Outlet />
     </div>
   );
 };
