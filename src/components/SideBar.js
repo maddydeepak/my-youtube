@@ -8,16 +8,16 @@ const SideBar = () => {
     return "";
   }
   return (
-    <div className="grid-cols-1 shadow-lg m-2 p-2 text-md">
+    <div className="grid-cols-1 shadow-lg m-2 p-2 text-sm">
       <div className="">
         <Link to="/">
-          <h1 className="font-bold">Home</h1>
+          <h1 className="font-semibold">Home</h1>
         </Link>
         <Link to="/">
-          <h1 className="font-bold">Sports</h1>
+          <h1 className="font-semibold">Shorts</h1>
         </Link>
         <Link to="/">
-          <h1 className="font-bold">Subscriptions</h1>
+          <h1 className="font-semibold">Subscriptions</h1>
         </Link>
         <div className="border m-2 w-auto border-b-gray-200" />
         <ul>
