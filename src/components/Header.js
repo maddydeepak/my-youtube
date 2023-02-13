@@ -59,7 +59,7 @@ const Header = () => {
         <div className="flex">
           <input
             type="text"
-            className="w-2/3 h-10 p-2 border border-gray-400 text-gray-900 text-sm rounded-l-full focus:ring-blue-500"
+            className="w-2/3 h-10 p-4 border border-gray-400 text-gray-900 text-sm rounded-l-full focus:ring-blue-500"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />

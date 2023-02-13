@@ -18,7 +18,7 @@ const ButtonList = () => {
     "World",
   ];
   return (
-    <div>
+    <div className="ml-36">
       {buttonList.map((item, index) => (
         <Button key={item} name={item} />
       ))}

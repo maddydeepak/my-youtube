@@ -1,22 +1,26 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { closeMenu } from "../utils/appSlice";
 import CommentsContainer from "./CommentsContainer";
+import WatchListCard from "./WatchListCard";
+import { Link } from "react-router-dom";
 
 const WatchVideo = () => {
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
+  const videoList = useSelector((store) => store.video.videoList);
+  console.log(videoList);
   useEffect(() => {
     dispatch(closeMenu(false));
   });
   return (
     <div className="flex">
       <div className="flex flex-col">
-        <div className="p-6 mx-6">
+        <div className="p-2 mx-6">
           <iframe
-            width="700"
-            height="400"
+            width="850"
+            height="450"
             src={"https://www.youtube.com/embed/" + searchParams.get("v")}
             title="YouTube video player"
             frameBorder="0"
@@ -26,7 +30,13 @@ const WatchVideo = () => {
         </div>
         <CommentsContainer />
       </div>
-      <div>Hello</div>
+      <div>
+        {videoList.map((video) => (
+          <Link to={"/watch?v=" + video.id}>
+            <WatchListCard videoData={video} key={video.id} />
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
