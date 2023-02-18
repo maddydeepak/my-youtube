@@ -5,6 +5,7 @@ import { closeMenu } from "../utils/appSlice";
 import CommentsContainer from "./CommentsContainer";
 import WatchListCard from "./WatchListCard";
 import { Link } from "react-router-dom";
+import LiveChat from "./LiveChat";
 
 const WatchVideo = () => {
   const [searchParams] = useSearchParams();
@@ -31,6 +32,7 @@ const WatchVideo = () => {
         <CommentsContainer />
       </div>
       <div>
+        <LiveChat />
         {videoList.map((video) => (
           <Link to={"/watch?v=" + video.id}>
             <WatchListCard videoData={video} key={video.id} />
