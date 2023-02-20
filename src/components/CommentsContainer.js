@@ -1,7 +1,7 @@
 import React from "react";
 import CommentsList from "./CommentsList";
 
-const CommentsContainer = () => {
+const CommentsContainer = ({ comments }) => {
   const commentsData = [
     {
       name: "User 1",
@@ -72,7 +72,7 @@ const CommentsContainer = () => {
   return (
     <div className="m-6">
       <h1 className="text-xl font-semibold">Comments</h1>
-      <CommentsList comments={commentsData} />
+      <CommentsList comments={comments} />
     </div>
   );
 };

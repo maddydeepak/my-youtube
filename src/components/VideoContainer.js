@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { YOUTUBE_API_URL } from "../constants";
-import VideoCard from "./VideoCard";
+import VideoCard, { AdVideoCard } from "./VideoCard";
 import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import { useDispatch } from "react-redux";
@@ -9,6 +9,7 @@ import { videoList } from "../utils/videoSlice";
 const VideoContainer = () => {
   const [videoData, setVideoData] = useState([]);
   const dispatch = useDispatch();
+
   useEffect(() => {
     getVideos();
   }, []);
@@ -24,7 +25,12 @@ const VideoContainer = () => {
     <Shimmer />
   ) : (
     <div className="flex flex-wrap ml-36">
-      {videoData.map((video) => (
+      {videoData[0] && (
+        <Link to={"/watch?v=" + videoData[0].id}>
+          <AdVideoCard videoData={videoData[0]} key={videoData[0].id} />
+        </Link>
+      )}
+      {videoData.slice(1).map((video) => (
         <Link to={"/watch?v=" + video.id}>
           <VideoCard videoData={video} key={video.id} />
         </Link>

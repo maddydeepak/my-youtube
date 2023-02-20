@@ -8,7 +8,7 @@ const SideBar = () => {
     return "";
   }
   return (
-    <div className="grid-cols-1 shadow-lg m-2 p-2 text-md absolute bg-white">
+    <div className="grid-cols-1 shadow-lg m-2 p-2 text-sm absolute bg-white">
       <div className="">
         <Link to="/">
           <h1 className="font-semibold">Home</h1>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { closeMenu } from "../utils/appSlice";
@@ -6,15 +6,25 @@ import CommentsContainer from "./CommentsContainer";
 import WatchListCard from "./WatchListCard";
 import { Link } from "react-router-dom";
 import LiveChat from "./LiveChat";
+import { YOUTUBE_COMMENT_API } from "../constants";
 
 const WatchVideo = () => {
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
   const videoList = useSelector((store) => store.video.videoList);
-  console.log(videoList);
+  const [comments, setComments] = useState([]);
   useEffect(() => {
     dispatch(closeMenu(false));
+    fetchCommentsData();
   });
+
+  const fetchCommentsData = async () => {
+    const data = await fetch(YOUTUBE_COMMENT_API);
+    const json = await data.json();
+    setComments(json.items);
+    console.log(json.items);
+  };
+
   return (
     <div className="flex">
       <div className="flex flex-col">
