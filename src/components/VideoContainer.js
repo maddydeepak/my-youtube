@@ -22,7 +22,7 @@ const VideoContainer = () => {
   };
 
   return videoData.length === 0 ? (
-    <Shimmer />
+    <Shimmer key="ShimmerComponent" />
   ) : (
     <div className="flex flex-wrap ml-36">
       {videoData[0] && (

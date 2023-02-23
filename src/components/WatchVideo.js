@@ -15,7 +15,7 @@ const WatchVideo = () => {
   const [comments, setComments] = useState([]);
   useEffect(() => {
     dispatch(closeMenu(false));
-    fetchCommentsData();
+    //fetchCommentsData();
   });
 
   const fetchCommentsData = async () => {
