@@ -52,7 +52,7 @@ const Header = () => {
           onClick={() => toggleMenuHandler()}
         />
         <a href="/">
-          <img src={logo} className="h-8 mx-2" alt="logo-icon" />
+          <img src={logo} className="h-6 m-1" alt="logo-icon" />
         </a>
       </div>
       <div className="col-span-10 mx-24">

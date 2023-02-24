@@ -10,4 +10,4 @@ export const YOUTUBE_SEARCH_API_URL =
 export const YOUTUBE_COMMENT_API =
   "https://www.googleapis.com/youtube/v3/commentThreads?key=" +
   GOOGLE_API_KEY +
-  "&textFormat=plainText&part=snippet&videoId=kffacxfA7G4&maxResults=50";
+  "&textFormat=plainText&part=snippet&videoId=";

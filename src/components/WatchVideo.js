@@ -15,20 +15,19 @@ const WatchVideo = () => {
   const [comments, setComments] = useState([]);
   useEffect(() => {
     dispatch(closeMenu(false));
-    //fetchCommentsData();
-  });
+    fetchCommentsData();
+  }, []);
 
   const fetchCommentsData = async () => {
-    const data = await fetch(YOUTUBE_COMMENT_API);
+    const data = await fetch(YOUTUBE_COMMENT_API + searchParams.get("v"));
     const json = await data.json();
     setComments(json.items);
-    console.log(json.items);
   };
 
   return (
     <div className="flex">
       <div className="flex flex-col">
-        <div className="mt-4 mx-16">
+        <div className="mt-4 ml-16">
           <iframe
             width="680"
             height="380"
@@ -39,9 +38,9 @@ const WatchVideo = () => {
             allowFullScreen
           ></iframe>
         </div>
-        <CommentsContainer />
+        <CommentsContainer comments={comments} />
       </div>
-      <div>
+      <div className="mx-0">
         <LiveChat />
         {videoList.map((video) => (
           <Link to={"/watch?v=" + video.id}>

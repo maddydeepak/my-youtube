@@ -1,37 +1,14 @@
 import React from "react";
 import user from "../assets/img/user.png";
 import verified from "../assets/img/verified.png";
+import { calculateDate } from "../utils/calculateDate";
 
 const VideoCard = ({ videoData }) => {
   const { snippet, statistics } = videoData;
   const { channelTitle, title, thumbnails } = snippet;
 
-  const calculatePublishedDate = (publishedAt) => {
-    let dt1 = new Date(publishedAt);
-    let dt2 = new Date();
-    var time = (dt2.getTime() - dt1.getTime()) / 1000;
-    var value = Math.abs(Math.round(time / (3600 * 24)));
-    const defaultYear = 365,
-      defaultMonth = 30;
-    let year, months, days;
-    year = value >= defaultYear ? Math.floor(value / defaultYear) : 0;
-    value = year ? value - year * defaultYear : value;
-    months =
-      value >= defaultMonth
-        ? Math.floor((value % defaultYear) / defaultMonth)
-        : 0;
-    value = months ? value - months * defaultMonth : value;
-    days = Math.floor(value % defaultYear);
-    return (
-      (year > 0 ? year + (year > 1 ? " years " : " year ") : "") +
-      (months > 0 ? months + (months > 1 ? " months " : " month ") : "") +
-      days +
-      (days > 1 ? " days Ago" : " day Ago")
-    );
-  };
-
   return (
-    <div className="w-64 h-64 hover:shadow-lg m-2 p-2 rounded-lg">
+    <div className="w-64 h-64 hover:shadow-lg m-2 p-2 rounded-lg hover:animate-pulse">
       <img className="rounded-lg" src={thumbnails.medium.url} alt="thumbnail" />
       <div className="flex my-2">
         <img className="w-8 h-8" src={user} alt="user" />
@@ -47,7 +24,7 @@ const VideoCard = ({ videoData }) => {
             {Intl.NumberFormat("en-US", { notation: "compact" }).format(
               statistics.viewCount
             )}
-            {" Views • " + calculatePublishedDate(snippet.publishedAt)}
+            {" Views • " + calculateDate(snippet.publishedAt)}
           </h2>
         </div>
       </div>
@@ -66,7 +43,7 @@ export const AdVideoCard = ({ videoData }) => {
         AD
       </div>
       <div
-        className="hover:bg-gray-500 rounded-lg"
+        className="hover:bg-gray-400 rounded-lg"
         data-tooltip-target="tooltip-default"
       >
         <VideoCard videoData={videoData} />

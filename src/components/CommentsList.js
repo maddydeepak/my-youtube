@@ -4,8 +4,8 @@ import Comment from "./Comment";
 const CommentsList = ({ comments }) => {
   return (
     <div className="p-2">
-      {comments.map((comment) => (
-        <Comment data={comment} key={comment.name} />
+      {comments.comments.map((comment) => (
+        <Comment data={comment} key={comment.id} />
       ))}
     </div>
   );
