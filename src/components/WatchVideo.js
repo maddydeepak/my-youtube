@@ -7,9 +7,13 @@ import WatchListCard from "./WatchListCard";
 import { Link } from "react-router-dom";
 import LiveChat from "./LiveChat";
 import { YOUTUBE_COMMENT_API } from "../constants";
+import { useLocation } from "react-router-dom";
 
 const WatchVideo = () => {
   const [searchParams] = useSearchParams();
+  const location = useLocation();
+  const { video } = location.state;
+  console.log(video);
   const dispatch = useDispatch();
   const videoList = useSelector((store) => store.video.videoList);
   const [comments, setComments] = useState([]);
@@ -26,8 +30,8 @@ const WatchVideo = () => {
 
   return (
     <div className="flex">
-      <div className="flex flex-col">
-        <div className="mt-4 ml-16">
+      <div className="flex flex-col mt-4 ml-16">
+        <div className="">
           <iframe
             width="680"
             height="380"
@@ -38,6 +42,7 @@ const WatchVideo = () => {
             allowFullScreen
           ></iframe>
         </div>
+        <div className="text-xl font-bold mt-2">{video.snippet.title}</div>
         <CommentsContainer comments={comments} />
       </div>
       <div className="mx-0">

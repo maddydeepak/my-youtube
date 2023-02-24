@@ -31,7 +31,7 @@ const VideoContainer = () => {
         </Link>
       )}
       {videoData.slice(1).map((video) => (
-        <Link to={"/watch?v=" + video.id}>
+        <Link to={"/watch?v=" + video.id} state={{ video: video }}>
           <VideoCard videoData={video} key={video.id} />
         </Link>
       ))}
