@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import LiveChat from "./LiveChat";
 import { YOUTUBE_COMMENT_API } from "../constants";
 import { useLocation } from "react-router-dom";
+import user from "../assets/img/user.png";
 
 const WatchVideo = () => {
   const [searchParams] = useSearchParams();
@@ -43,6 +44,9 @@ const WatchVideo = () => {
           ></iframe>
         </div>
         <div className="text-xl font-bold mt-2">{video.snippet.title}</div>
+        <div className="flex">
+          <img src={user} className="w-8 m-2" />
+        </div>
         <CommentsContainer comments={comments} />
       </div>
       <div className="mx-0">

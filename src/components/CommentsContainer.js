@@ -2,7 +2,6 @@ import React from "react";
 import CommentsList from "./CommentsList";
 
 const CommentsContainer = (comments) => {
-  console.log(comments);
   return (
     <div className="w-auto">
       <h1 className="text-md font-semibold">
