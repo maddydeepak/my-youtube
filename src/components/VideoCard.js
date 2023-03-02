@@ -13,7 +13,7 @@ const VideoCard = ({ videoData }) => {
       <div className="flex my-2">
         <img className="w-8 h-8" src={user} alt="user" />
         <div className="mx-2">
-          <div className="font-bold text-sm">
+          <div className="font-bold text-sm h-10">
             {title.length > 40 ? title.substr(0, 40) + "..." : title}
           </div>
           <div className="flex mt-2">
